@@ -1,0 +1,90 @@
+{% load url from future %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}statusboard{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+    <link rel="stylesheet" href="{% static "less/normalize.less" %}" type="text/less" media="all" charset="utf-8">
+    <link rel="stylesheet" href="{% static "less/bootstrap.less" %}" type="text/less" media="all" charset="utf-8">
+    {% endcompress %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {% block extra_head %}{% endblock extra_head %}
+  </head>
+
+  <body class="{% block body_class %}{% endblock body_class %}">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">statusboard</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>{% block page_title %}Example Base Template{% endblock page_title %}</h1>
+
+      {% block content %}
+        <p>Use this document as a way to quick start any new project.</p>
+      {% endblock content %}
+
+    </div> <!-- /container -->
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+    {% compress js %}
+    <script src="{% static "js/statusboard.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-transition.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-alert.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-modal.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-dropdown.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-scrollspy.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-tab.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-tooltip.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-popover.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-button.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-collapse.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-carousel.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/bootstrap/bootstrap-typeahead.js" %}" type="text/javascript" charset="utf-8"></script>
+    {% endcompress %}
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        App.init();
+      });
+    </script>
+
+    {% block extra_body %}{% endblock extra_body %}
+  </body>
+</html>

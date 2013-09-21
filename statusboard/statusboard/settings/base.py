@@ -3,7 +3,6 @@
 import os
 import sys
 
-from postgresify import postgresify
 from unipath import Path
 
 
@@ -45,12 +44,6 @@ ADMINS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
-
-
-########## DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = postgresify()
-########## END DATABASE CONFIGURATION
 
 
 ########## GENERAL CONFIGURATION

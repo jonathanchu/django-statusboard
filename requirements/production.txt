@@ -1,4 +1,0 @@
-#	Production dependencies
--r base.txt
-
-gunicorn==0.17.0

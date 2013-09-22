@@ -106,7 +106,7 @@ class CustomUserAdmin(admin.ModelAdmin):
             'username_help_text': username_field.help_text,
         }
         extra_context.update(defaults)
-        return super(UserAdmin, self).add_view(request, form_url,
+        return super(CustomUserAdmin, self).add_view(request, form_url,
                                                extra_context)
 
     @sensitive_post_parameters_m
@@ -161,7 +161,7 @@ class CustomUserAdmin(admin.ModelAdmin):
         # * We are adding a user in a popup
         if '_addanother' not in request.POST and '_popup' not in request.POST:
             request.POST['_continue'] = 1
-        return super(UserAdmin, self).response_add(request, obj,
+        return super(CustomUserAdmin, self).response_add(request, obj,
                                                    post_url_continue)
 
 

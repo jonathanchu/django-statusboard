@@ -175,8 +175,10 @@ DJANGO_APPS = (
     'django.contrib.humanize',
 
     # Admin panel and documentation:
+    'grappelli',
+    # grappelli needs to go before django.contrib.admin
     'django.contrib.admin',
-    'django.contrib.admindocs',
+    # 'django.contrib.admindocs',
 )
 
 THIRD_PARTY_APPS = (
@@ -187,6 +189,7 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'accounts',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -247,3 +250,8 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.JSMinFilter'
 ]
 ########## END COMPRESSOR CONFIGURATION
+
+
+########## AUTHENTICATION CONFIGURATION
+AUTH_USER_MODEL = 'accounts.CustomUser'
+########## END AUTHENTICATION CONFIGURATION
